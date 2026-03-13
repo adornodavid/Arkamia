@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BARBARO — Cocina Ítalo-Americana | Highpark, San Pedro</title>
+  <meta name="description" content="Restaurante ítalo-americano en Highpark, Gómez Morín, San Pedro Garza García.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --black-rich: #111111;
+  --navy: #1a2744;
+  --navy-deep: #0f1a2e;
+  --gold: #c9a84c;
+  --gold-light: #d4b65a;
+  --gold-dim: #9a7b3a;
+  --cream: #f5f0e8;
+  --cream-light: #faf7f2;
+  --cream-dark: #e8e0d0;
+  --white: #ffffff;
+  --gray-400: #8a8578;
+  --gray-600: #5a5650;
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-accent: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --section-pad: clamp(80px, 10vw, 140px);
+  --container-max: 1200px;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); background-color: var(--black); color: var(--cream); line-height: 1.6; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
+#navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s var(--ease); }
+#navbar.scrolled { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 14px 0; border-bottom: 1px solid rgba(201, 168, 76, 0.15); }
+.nav-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: var(--gold); letter-spacing: 0.05em; transition: color 0.3s; }
+.nav-logo:hover { color: var(--gold-light); }
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a { font-family: var(--font-accent); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease); }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 10px 24px; font-weight: 600 !important; letter-spacing: 0.1em !important; transition: all 0.3s var(--ease) !important; }
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--cream); transition: all 0.3s; }
+#hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(ellipse at 50% 30%, rgba(201, 168, 76, 0.08) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(26, 39, 68, 0.3) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(26, 39, 68, 0.3) 0%, transparent 50%), var(--black); overflow: hidden; }
+.hero-overlay { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(201, 168, 76, 0.02) 2px, rgba(201, 168, 76, 0.02) 4px); pointer-events: none; }
+.hero-content { position: relative; z-index: 2; padding: 0 24px; }
+.hero-eyebrow { font-family: var(--font-accent); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 24px; animation: fadeInUp 1s var(--ease) 0.2s both; }
+.hero-title { font-family: var(--font-display); font-size: clamp(4rem, 12vw, 10rem); font-weight: 900; color: var(--cream); letter-spacing: 0.02em; line-height: 0.9; margin-bottom: 16px; animation: fadeInUp 1s var(--ease) 0.4s both; text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); }
+.hero-subtitle { font-family: var(--font-accent); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; animation: fadeInUp 1s var(--ease) 0.6s both; }
+.hero-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 32px; animation: fadeInUp 1s var(--ease) 0.7s both; }
+.divider-line { display: block; width: 60px; height: 1px; background: var(--gold-dim); }
+.divider-diamond { color: var(--gold); font-size: 0.6rem; }
+.hero-tagline { font-family: var(--font-heading); font-size: clamp(1.2rem, 3vw, 1.8rem); font-style: italic; font-weight: 300; color: var(--cream-dark); margin-bottom: 40px; animation: fadeInUp 1s var(--ease) 0.8s both; }
+.hero-btn { display: inline-block; font-family: var(--font-accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 16px 48px; transition: all 0.4s var(--ease); animation: fadeInUp 1s var(--ease) 1s both; }
+.hero-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3); }
+.hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; animation: fadeInUp 1s var(--ease) 1.2s both; }
+.hero-scroll span { font-family: var(--font-accent); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-400); }
+.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold-dim), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+.section-eyebrow { font-family: var(--font-accent); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.section-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: var(--cream); line-height: 1.15; margin-bottom: 24px; }
+#about { padding: var(--section-pad) 0; background: var(--black-rich); border-top: 1px solid rgba(201, 168, 76, 0.1); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-divider { width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px; }
+.about-description { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.8; color: var(--cream-dark); margin-bottom: 20px; }
+.about-signature { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(201, 168, 76, 0.15); }
+.signature-text { font-family: var(--font-heading); font-size: 1.1rem; font-style: italic; color: var(--gold-dim); }
+.about-card { background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(26, 39, 68, 0.3)); border: 1px solid rgba(201, 168, 76, 0.2); padding: 40px; text-align: center; margin-bottom: 32px; }
+.card-icon { color: var(--gold); font-size: 1.5rem; margin-bottom: 8px; }
+.card-rating { font-family: var(--font-display); font-size: 4rem; font-weight: 900; color: var(--cream); line-height: 1; margin-bottom: 8px; }
+.card-source { font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); }
+.about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.feature { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(201, 168, 76, 0.08); padding: 20px; transition: all 0.3s var(--ease); }
+.feature:hover { border-color: rgba(201, 168, 76, 0.25); background: rgba(201, 168, 76, 0.05); }
+.feature-number { display: block; font-family: var(--font-accent); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; color: var(--gold-dim); margin-bottom: 8px; }
+.feature-text { font-family: var(--font-heading); font-size: 1.1rem; color: var(--cream); }
+#menu { padding: var(--section-pad) 0; background: radial-gradient(ellipse at 50% 0%, rgba(26, 39, 68, 0.15) 0%, transparent 60%), var(--black); }
+.menu-eyebrow, .menu-title { text-align: center; }
+.menu-subtitle-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 48px; }
+.menu-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid rgba(201, 168, 76, 0.1); }
+.menu-tab { font-family: var(--font-accent); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-400); padding: 10px 20px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s var(--ease); }
+.menu-tab:hover { color: var(--cream); border-color: rgba(201, 168, 76, 0.3); }
+.menu-tab.active { color: var(--black); background: var(--gold); border-color: var(--gold); }
+.menu-section { display: none; }
+.menu-section.active { display: block; animation: fadeIn 0.4s var(--ease); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.menu-section-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; color: var(--cream); text-align: center; margin-bottom: 40px; position: relative; }
+.menu-section-title::after { content: ''; display: block; width: 40px; height: 2px; background: var(--gold); margin: 16px auto 0; }
+.menu-grid { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 4px; }
+.menu-item { padding: 16px 20px; transition: background 0.3s var(--ease); border-left: 2px solid transparent; }
+.menu-item:hover { background: rgba(201, 168, 76, 0.04); border-left-color: var(--gold-dim); }
+.menu-item.highlight { background: rgba(201, 168, 76, 0.06); border-left: 2px solid var(--gold); }
+.menu-item-header { display: flex; align-items: baseline; gap: 8px; }
+.menu-item-name { font-family: var(--font-accent); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); white-space: nowrap; }
+.menu-item-dots { flex: 1; border-bottom: 1px dotted rgba(201, 168, 76, 0.2); min-width: 30px; position: relative; top: -4px; }
+.menu-item-price { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; color: var(--gold); white-space: nowrap; }
+.menu-item-detail { font-family: var(--font-body); font-size: 0.78rem; color: var(--gray-400); margin-top: 4px; letter-spacing: 0.02em; }
+.menu-footer-note { text-align: center; font-family: var(--font-body); font-size: 0.75rem; color: var(--gray-600); margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(201, 168, 76, 0.08); }
+#ambience { padding: var(--section-pad) 0; background: var(--black-rich); border-top: 1px solid rgba(201, 168, 76, 0.08); text-align: center; }
+#ambience .section-eyebrow, #ambience .section-title { text-align: center; }
+.ambience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 60px; }
+.ambience-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(201, 168, 76, 0.1); padding: 40px 24px; text-align: center; transition: all 0.4s var(--ease); }
+.ambience-card:hover { border-color: rgba(201, 168, 76, 0.3); background: rgba(201, 168, 76, 0.04); transform: translateY(-4px); }
+.ambience-icon { width: 48px; height: 48px; margin: 0 auto 20px; color: var(--gold); }
+.ambience-card h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; color: var(--cream); margin-bottom: 12px; }
+.ambience-card p { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.6; color: var(--gray-400); }
+#hours { padding: var(--section-pad) 0; background: var(--black); border-top: 1px solid rgba(201, 168, 76, 0.08); }
+.hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.hours-table { margin: 40px 0; display: flex; flex-direction: column; gap: 16px; }
+.hours-row { display: flex; align-items: baseline; gap: 8px; }
+.hours-day { font-family: var(--font-accent); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); white-space: nowrap; }
+.hours-dots { flex: 1; border-bottom: 1px dotted rgba(201, 168, 76, 0.2); min-width: 20px; position: relative; top: -4px; }
+.hours-time { font-family: var(--font-heading); font-size: 1rem; color: var(--gold); white-space: nowrap; }
+.location-info { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(201, 168, 76, 0.1); }
+.location-info h4 { font-family: var(--font-accent); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.location-info p, .location-info li { font-family: var(--font-body); font-size: 0.9rem; line-height: 1.7; color: var(--cream-dark); }
+.location-services li { position: relative; padding-left: 16px; }
+.location-services li::before { content: '\2014'; position: absolute; left: 0; color: var(--gold-dim); font-size: 0.7rem; }
+.hours-map { display: flex; align-items: center; justify-content: center; }
+.map-placeholder { width: 100%; aspect-ratio: 1; max-width: 400px; background: radial-gradient(circle at 50% 50%, rgba(26, 39, 68, 0.4) 0%, rgba(10, 10, 10, 0.8) 70%), linear-gradient(135deg, var(--navy-deep), var(--black)); border: 1px solid rgba(201, 168, 76, 0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; transition: border-color 0.3s; }
+.map-placeholder:hover { border-color: rgba(201, 168, 76, 0.35); }
+.map-pin { color: var(--gold); animation: pinBounce 2s ease-in-out infinite; }
+@keyframes pinBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.map-label { font-family: var(--font-accent); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dark); }
+.map-link { font-family: var(--font-accent); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); padding: 10px 24px; border: 1px solid var(--gold-dim); transition: all 0.3s var(--ease); }
+.map-link:hover { background: var(--gold); color: var(--black); }
+#reservations { padding: var(--section-pad) 0; background: radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 60%), var(--navy-deep); text-align: center; border-top: 1px solid rgba(201, 168, 76, 0.1); }
+.reservations-inner { max-width: 600px; margin: 0 auto; }
+.reservations-text { font-family: var(--font-heading); font-size: 1.15rem; font-style: italic; color: var(--cream-dark); margin-bottom: 40px; line-height: 1.7; }
+.reservations-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+.btn { font-family: var(--font-accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 16px 40px; transition: all 0.4s var(--ease); display: inline-block; }
+.btn-primary { background: var(--gold); color: var(--black); }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3); }
+.btn-secondary { background: transparent; color: var(--cream); border: 1px solid rgba(201, 168, 76, 0.4); }
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.reservations-contact p { font-family: var(--font-body); font-size: 0.85rem; color: var(--gray-400); }
+.reservations-contact a { color: var(--gold); transition: color 0.3s; }
+.reservations-contact a:hover { color: var(--gold-light); }
+#footer { padding: 60px 0 40px; background: var(--black); border-top: 1px solid rgba(201, 168, 76, 0.1); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.footer-logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: var(--gold); display: block; margin-bottom: 12px; }
+.footer-tagline { font-family: var(--font-heading); font-size: 0.95rem; font-style: italic; color: var(--cream-dark); margin-bottom: 16px; }
+.footer-address { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.7; color: var(--gray-400); }
+.footer-links h4, .footer-social h4, .footer-grupo h4 { font-family: var(--font-accent); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 20px; }
+.footer-links a, .footer-social a { display: block; font-family: var(--font-body); font-size: 0.85rem; color: var(--cream-dark); margin-bottom: 10px; transition: color 0.3s; }
+.footer-links a:hover, .footer-social a:hover { color: var(--gold); }
+.grupo-link { font-family: var(--font-heading); font-size: 1rem; font-style: italic; color: var(--cream-dark) !important; transition: color 0.3s; }
+.grupo-link:hover { color: var(--gold) !important; }
+.footer-bottom { padding-top: 24px; text-align: center; }
+.footer-bottom p { font-family: var(--font-body); font-size: 0.75rem; color: var(--gray-600); }
+@media (max-width: 1024px) {
+  .ambience-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+  .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(20px); flex-direction: column; justify-content: center; gap: 24px; padding: 40px; transition: right 0.4s var(--ease); border-left: 1px solid rgba(201, 168, 76, 0.15); }
+  .nav-links.open { right: 0; }
+  .nav-cta { margin-top: 16px; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hours-grid { grid-template-columns: 1fr; gap: 48px; }
+  .location-info { grid-template-columns: 1fr; gap: 24px; }
+  .ambience-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .menu-nav { gap: 6px; }
+  .menu-tab { font-size: 0.6rem; padding: 8px 12px; }
+  .menu-item-name { font-size: 0.75rem; }
+  .menu-item-price { font-size: 1rem; }
+  .reservations-buttons { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  .hero-title { font-size: 3.5rem; }
+  .about-features { grid-template-columns: 1fr; }
+  .menu-item-header { flex-wrap: wrap; }
+  .menu-item-dots { display: none; }
+  .menu-item-price { width: 100%; text-align: left; margin-top: 2px; }
+}
+</style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">"BARBARO"</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">Nosotros</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#ambience">Espacio</a></li>
+        <li><a href="#hours">Horarios</a></li>
+        <li><a href="#reservations" class="nav-cta">Reservar</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">HIGHPARK &middot; GOMEZ MORIN &middot; SAN PEDRO</p>
+      <h1 class="hero-title">"BARBARO"</h1>
+      <p class="hero-subtitle">Cocina Italo-Americana</p>
+      <div class="hero-divider"><span class="divider-line"></span><span class="divider-diamond">&#9830;</span><span class="divider-line"></span></div>
+      <p class="hero-tagline">Buonasera</p>
+      <a href="#menu" class="hero-btn">Ver Menu</a>
+    </div>
+    <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-eyebrow">Nuestra Historia</p>
+          <h2 class="section-title">La autentica experiencia<br>italo-americana</h2>
+          <div class="about-divider"></div>
+          <p class="about-description">BARBARO es una celebracion de la cocina italoamericana en su maxima expresion. Inspirado en los grandes restaurantes de Nueva York de los anos 70 y 80, nuestro espacio transporta a cada comensal a una era donde la comida era el centro de toda reunion.</p>
+          <p class="about-description">Desde nuestras pastas hechas en casa hasta los cortes premium, cada platillo es una declaracion de identidad: comfort food italiano elevado con toques de lujo accesible.</p>
+          <div class="about-signature"><span class="signature-text">Grupo Buenas Vibras</span></div>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <div class="card-icon">&#9733;</div>
+            <div class="card-rating">4.7</div>
+            <div class="card-source">OpenTable &middot; 308+ comensales</div>
+          </div>
+          <div class="about-features">
+            <div class="feature"><span class="feature-number">01</span><span class="feature-text">Pastas artesanales</span></div>
+            <div class="feature"><span class="feature-number">02</span><span class="feature-text">Pizza al horno de lena</span></div>
+            <div class="feature"><span class="feature-number">03</span><span class="feature-text">Cortes premium</span></div>
+            <div class="feature"><span class="feature-number">04</span><span class="feature-text">Cocteleria de autor</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="menu">
+    <div class="container">
+      <p class="section-eyebrow menu-eyebrow">Buonasera</p>
+      <h2 class="section-title menu-title">Il Menu</h2>
+      <div class="menu-subtitle-divider"><span class="divider-line"></span><span class="divider-diamond">&#9830;</span><span class="divider-line"></span></div>
+      <div class="menu-nav">
+        <button class="menu-tab active" data-section="minestra">La Minestra y Crudos</button>
+        <button class="menu-tab" data-section="entradas">Ensaladas y Entradas</button>
+        <button class="menu-tab" data-section="pasta">Pasta della Casa</button>
+        <button class="menu-tab" data-section="pizza">Pizza</button>
+        <button class="menu-tab" data-section="risotto">Risotto</button>
+        <button class="menu-tab" data-section="mare">Mare e Terra</button>
+      </div>
+      <div class="menu-section active" id="minestra">
+        <h3 class="menu-section-title">La Minestra y Crudos</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Zuppa di Pomodori</h4><span class="menu-item-dots"></span><span class="menu-item-price">$195</span></div><p class="menu-item-detail">360 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Zuppa Minestrone</h4><span class="menu-item-dots"></span><span class="menu-item-price">$195</span></div><p class="menu-item-detail">354 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Carpaccio de Res</h4><span class="menu-item-dots"></span><span class="menu-item-price">$425</span></div><p class="menu-item-detail">120 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Salmon Burrata</h4><span class="menu-item-dots"></span><span class="menu-item-price">$415</span></div><p class="menu-item-detail">180 gramos</p></div>
+        </div>
+      </div>
+      <div class="menu-section" id="entradas">
+        <h3 class="menu-section-title">Ensaladas y Entradas</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Ensalada Caesar</h4><span class="menu-item-dots"></span><span class="menu-item-price">$339</span></div><p class="menu-item-detail">375 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Ensalada Burrata</h4><span class="menu-item-dots"></span><span class="menu-item-price">$395</span></div><p class="menu-item-detail">565 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Calamari Fritti</h4><span class="menu-item-dots"></span><span class="menu-item-price">$325</span></div><p class="menu-item-detail">248 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Pane di Casa</h4><span class="menu-item-dots"></span><span class="menu-item-price">$55</span></div><p class="menu-item-detail">250 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Pulpo al Pesto</h4><span class="menu-item-dots"></span><span class="menu-item-price">$455</span></div><p class="menu-item-detail">480 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Scampi al Burro</h4><span class="menu-item-dots"></span><span class="menu-item-price">$595</span></div><p class="menu-item-detail">368 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Real Truffle Fries</h4><span class="menu-item-dots"></span><span class="menu-item-price">$485</span></div><p class="menu-item-detail">300 gramos</p></div>
+        </div>
+      </div>
+      <div class="menu-section" id="pasta">
+        <h3 class="menu-section-title">Pasta della Casa</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Pappardelle Short Rib</h4><span class="menu-item-dots"></span><span class="menu-item-price">$365</span></div><p class="menu-item-detail">500 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Agnolotti Ricotta</h4><span class="menu-item-dots"></span><span class="menu-item-price">$295</span></div><p class="menu-item-detail">250 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Rigatoni al Ragu</h4><span class="menu-item-dots"></span><span class="menu-item-price">$325</span></div><p class="menu-item-detail">150 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Fagottini Stone Crab</h4><span class="menu-item-dots"></span><span class="menu-item-price">$395</span></div><p class="menu-item-detail">250 gramos</p></div>
+          <div class="menu-item highlight"><div class="menu-item-header"><h4 class="menu-item-name">Spicy Vodka Cresta di Gallo</h4><span class="menu-item-dots"></span><span class="menu-item-price">$295</span></div><p class="menu-item-detail">130 gramos &middot; Favorito de la casa</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Ravioli Short Rib</h4><span class="menu-item-dots"></span><span class="menu-item-price">$315</span></div><p class="menu-item-detail">250 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Lasagna 24 Stati</h4><span class="menu-item-dots"></span><span class="menu-item-price">$295</span></div><p class="menu-item-detail">400 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Meat Lasagna</h4><span class="menu-item-dots"></span><span class="menu-item-price">$895</span></div><p class="menu-item-detail">650 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Spaghetti Meatballs</h4><span class="menu-item-dots"></span><span class="menu-item-price">$445</span></div><p class="menu-item-detail">256 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Scampi Linguine</h4><span class="menu-item-dots"></span><span class="menu-item-price">$495</span></div><p class="menu-item-detail">280 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Carbonara</h4><span class="menu-item-dots"></span><span class="menu-item-price">$295</span></div><p class="menu-item-detail">200 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Pesto Rigatoni</h4><span class="menu-item-dots"></span><span class="menu-item-price">$285</span></div><p class="menu-item-detail">130 gramos</p></div>
+        </div>
+      </div>
+      <div class="menu-section" id="pizza">
+        <h3 class="menu-section-title">Pizza</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Margherita</h4><span class="menu-item-dots"></span><span class="menu-item-price">$285</span></div><p class="menu-item-detail">300 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Pepperoni</h4><span class="menu-item-dots"></span><span class="menu-item-price">$295</span></div><p class="menu-item-detail">330 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Bianca</h4><span class="menu-item-dots"></span><span class="menu-item-price">$295</span></div><p class="menu-item-detail">330 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Prosciutto</h4><span class="menu-item-dots"></span><span class="menu-item-price">$325</span></div><p class="menu-item-detail">330 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Salsiccia Italiana</h4><span class="menu-item-dots"></span><span class="menu-item-price">$295</span></div><p class="menu-item-detail">350 gramos</p></div>
+        </div>
+      </div>
+      <div class="menu-section" id="risotto">
+        <h3 class="menu-section-title">Risotto</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Risotto Verde</h4><span class="menu-item-dots"></span><span class="menu-item-price">$295</span></div><p class="menu-item-detail">461 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Risotto ai Funghi</h4><span class="menu-item-dots"></span><span class="menu-item-price">$355</span></div><p class="menu-item-detail">484 gramos</p></div>
+          <div class="menu-item highlight"><div class="menu-item-header"><h4 class="menu-item-name">Lobster Risotto</h4><span class="menu-item-dots"></span><span class="menu-item-price">$495</span></div><p class="menu-item-detail">450 gramos &middot; Especialidad de la casa</p></div>
+        </div>
+      </div>
+      <div class="menu-section" id="mare">
+        <h3 class="menu-section-title">Mare e Terra</h3>
+        <div class="menu-grid">
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Bone in Milanese</h4><span class="menu-item-dots"></span><span class="menu-item-price">$845</span></div><p class="menu-item-detail">200 gramos</p></div>
+          <div class="menu-item highlight"><div class="menu-item-header"><h4 class="menu-item-name">Ribeye al Barbaro</h4><span class="menu-item-dots"></span><span class="menu-item-price">$1,095</span></div><p class="menu-item-detail">400 gramos &middot; Corte insignia</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Mahi Mahi</h4><span class="menu-item-dots"></span><span class="menu-item-price">$495</span></div><p class="menu-item-detail">200 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Chicken Parm</h4><span class="menu-item-dots"></span><span class="menu-item-price">$435</span></div><p class="menu-item-detail">200 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Pulpo All'Arrabbiata</h4><span class="menu-item-dots"></span><span class="menu-item-price">$495</span></div><p class="menu-item-detail">250 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Short Rib Gnocchi</h4><span class="menu-item-dots"></span><span class="menu-item-price">$675</span></div><p class="menu-item-detail">300 gramos</p></div>
+          <div class="menu-item"><div class="menu-item-header"><h4 class="menu-item-name">Filetto Bruciato</h4><span class="menu-item-dots"></span><span class="menu-item-price">$695</span></div><p class="menu-item-detail">180 gramos</p></div>
+        </div>
+      </div>
+      <p class="menu-footer-note">Precios en MXN. Propina no incluida. Menu sujeto a disponibilidad.</p>
+    </div>
+  </section>
+  <section id="ambience">
+    <div class="container">
+      <p class="section-eyebrow">La Experiencia</p>
+      <h2 class="section-title">Un viaje al Nueva York<br>de los 70s &amp; 80s</h2>
+      <div class="ambience-grid">
+        <div class="ambience-card">
+          <div class="ambience-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="40" height="32" rx="2"/><line x1="4" y1="16" x2="44" y2="16"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="24" y1="8" x2="24" y2="16"/><line x1="36" y1="8" x2="36" y2="16"/><rect x="10" y="22" width="12" height="8" rx="1"/><rect x="26" y="22" width="12" height="8" rx="1"/></svg></div>
+          <h3>Techo Casetonado</h3><p>Retroiluminado en dorado, evocando los grandes salones de los hoteles de Manhattan</p>
+        </div>
+        <div class="ambience-card">
+          <div class="ambience-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="24,4 28,16 40,16 30,24 34,36 24,28 14,36 18,24 8,16 20,16"/></svg></div>
+          <h3>Mosaico Hexagonal</h3><p>Piso blanco y negro iconografico de la identidad Italian-American de Nueva York</p>
+        </div>
+        <div class="ambience-card">
+          <div class="ambience-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40 C8 20, 16 12, 24 12 C32 12, 40 20, 40 40"/><line x1="24" y1="12" x2="24" y2="4"/><circle cx="24" cy="4" r="2"/><line x1="8" y1="40" x2="40" y2="40"/></svg></div>
+          <h3>Iluminacion Ambar</h3><p>Nichos y arcos con luz calida teatral, creando una atmosfera casi cinematografica</p>
+        </div>
+        <div class="ambience-card">
+          <div class="ambience-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="16" width="32" height="24" rx="2"/><path d="M8 28 Q24 20 40 28"/><circle cx="24" cy="8" r="4"/></svg></div>
+          <h3>Booths Azul Marino</h3><p>Banquetas tapizadas en azul profundo, guino al diner americano de lujo clasico</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="hours">
+    <div class="container">
+      <div class="hours-grid">
+        <div class="hours-info">
+          <p class="section-eyebrow">Visitanos</p>
+          <h2 class="section-title">Horarios &amp; Ubicacion</h2>
+          <div class="hours-table">
+            <div class="hours-row"><span class="hours-day">Lunes &mdash; Jueves</span><span class="hours-dots"></span><span class="hours-time">1:00 PM &mdash; 1:00 AM</span></div>
+            <div class="hours-row"><span class="hours-day">Viernes &mdash; Sabado</span><span class="hours-dots"></span><span class="hours-time">1:00 PM &mdash; 2:00 AM</span></div>
+            <div class="hours-row"><span class="hours-day">Domingo</span><span class="hours-dots"></span><span class="hours-time">1:00 PM &mdash; 10:00 PM</span></div>
+          </div>
+          <div class="location-info">
+            <div class="location-address"><h4>Direccion</h4><p>Highpark<br>Av. Manuel Gomez Morin 922<br>San Pedro Garza Garcia, NL 66259</p></div>
+            <div class="location-services"><h4>Servicios</h4><ul><li>Bar completo &amp; cocteleria</li><li>Terraza exterior</li><li>Valet parking</li><li>Acceso para sillas de ruedas</li></ul></div>
+          </div>
+        </div>
+        <div class="hours-map">
+          <div class="map-placeholder">
+            <div class="map-pin"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+            <p class="map-label">Highpark &middot; Gomez Morin</p>
+            <a href="https://maps.app.goo.gl/ohM1rk5zFtY9Ru3d6?g_st=ac" target="_blank" rel="noopener" class="map-link">Abrir en Google Maps &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="reservations">
+    <div class="container">
+      <div class="reservations-inner">
+        <p class="section-eyebrow">Reservaciones</p>
+        <h2 class="section-title">Reserve su mesa</h2>
+        <p class="reservations-text">Para una experiencia inolvidable, le recomendamos hacer su reservacion con anticipacion.</p>
+        <div class="reservations-buttons">
+          <a href="https://www.opentable.com/r/barbaro-san-pedro-garza-garcia" target="_blank" rel="noopener" class="btn btn-primary">Reservar en OpenTable</a>
+          <a href="https://www.instagram.com/barbaromty/" target="_blank" rel="noopener" class="btn btn-secondary">Seguir en Instagram</a>
+        </div>
+        <div class="reservations-contact"><p>Contactenos via Instagram <a href="https://www.instagram.com/barbaromty/" target="_blank" rel="noopener">@barbaromty</a></p></div>
+      </div>
+    </div>
+  </section>
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><span class="footer-logo">"BARBARO"</span><p class="footer-tagline">Cocina Italo-Americana</p><p class="footer-address">Highpark &middot; Gomez Morin 922<br>San Pedro Garza Garcia, NL</p></div>
+        <div class="footer-links"><h4>Navegacion</h4><a href="#about">Nosotros</a><a href="#menu">Menu</a><a href="#ambience">Espacio</a><a href="#hours">Horarios</a><a href="#reservations">Reservar</a></div>
+        <div class="footer-social"><h4>Siguenos</h4><a href="https://www.instagram.com/barbaromty/" target="_blank" rel="noopener">Instagram</a><a href="https://www.opentable.com/r/barbaro-san-pedro-garza-garcia" target="_blank" rel="noopener">OpenTable</a><a href="https://www.ubereats.com/mx/store/barbaro/wAwXYGp9XQOng-DKrDeKzw" target="_blank" rel="noopener">Uber Eats</a></div>
+        <div class="footer-grupo"><h4>Un concepto de</h4><a href="https://www.instagram.com/grupo_buenasvibras/" target="_blank" rel="noopener" class="grupo-link">Grupo Buenas Vibras</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 BARBARO. Todos los derechos reservados.</p></div>
+    </div>
+  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  }, { passive: true });
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const spans = navToggle.querySelectorAll('span');
+    if (navLinks.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
+    }
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      const spans = navToggle.querySelectorAll('span');
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
+    });
+  });
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.section;
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.menu-section').forEach(section => {
+        section.classList.remove('active');
+        if (section.id === target) section.classList.add('active');
+      });
+    });
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.about-text, .about-visual, .ambience-card, .hours-info, .hours-map, .reservations-inner').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)';
+    el.style.transitionDelay = el.classList.contains('ambience-card') ? `${Array.from(document.querySelectorAll('.ambience-card')).indexOf(el) * 0.1}s` : '0s';
+    observer.observe(el);
+  });
+});
+</script>
+</body>
+</html>
