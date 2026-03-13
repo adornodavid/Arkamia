@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BARBARO — Cocina Ítalo-Americana | Highpark, San Pedro</title>
+  <meta name="description" content="Restaurante ítalo-americano en Highpark, Gómez Morín, San Pedro Garza García. Pastas, pizzas, risottos y platillos premium en un ambiente que evoca el Nueva York de los 70s y 80s.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- NAVIGATION                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">"BARBARO"</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">Nosotros</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#ambience">Espacio</a></li>
+        <li><a href="#hours">Horarios</a></li>
+        <li><a href="#reservations" class="nav-cta">Reservar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO                                        -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">HIGHPARK &middot; GÓMEZ MORÍN &middot; SAN PEDRO</p>
+      <h1 class="hero-title">"BARBARO"</h1>
+      <p class="hero-subtitle">Cocina Ítalo-Americana</p>
+      <div class="hero-divider">
+        <span class="divider-line"></span>
+        <span class="divider-diamond">&#9830;</span>
+        <span class="divider-line"></span>
+      </div>
+      <p class="hero-tagline">Buonasera</p>
+      <a href="#menu" class="hero-btn">Ver Menú</a>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ABOUT                                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-eyebrow">Nuestra Historia</p>
+          <h2 class="section-title">La auténtica experiencia<br>ítalo-americana</h2>
+          <div class="about-divider"></div>
+          <p class="about-description">
+            BARBARO es una celebración de la cocina italoamericana en su máxima expresión.
+            Inspirado en los grandes restaurantes de Nueva York de los años 70 y 80, nuestro
+            espacio transporta a cada comensal a una era donde la comida era el centro de toda reunión.
+          </p>
+          <p class="about-description">
+            Desde nuestras pastas hechas en casa hasta los cortes premium, cada platillo
+            es una declaración de identidad: comfort food italiano elevado con toques de lujo accesible.
+          </p>
+          <div class="about-signature">
+            <span class="signature-text">Grupo Buenas Vibras</span>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <div class="card-icon">&#9733;</div>
+            <div class="card-rating">4.7</div>
+            <div class="card-source">OpenTable &middot; 308+ comensales</div>
+          </div>
+          <div class="about-features">
+            <div class="feature">
+              <span class="feature-number">01</span>
+              <span class="feature-text">Pastas artesanales</span>
+            </div>
+            <div class="feature">
+              <span class="feature-number">02</span>
+              <span class="feature-text">Pizza al horno de leña</span>
+            </div>
+            <div class="feature">
+              <span class="feature-number">03</span>
+              <span class="feature-text">Cortes premium</span>
+            </div>
+            <div class="feature">
+              <span class="feature-number">04</span>
+              <span class="feature-text">Coctelería de autor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- MENU                                        -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="menu">
+    <div class="container">
+      <p class="section-eyebrow menu-eyebrow">Buonasera</p>
+      <h2 class="section-title menu-title">Il Menú</h2>
+      <div class="menu-subtitle-divider">
+        <span class="divider-line"></span>
+        <span class="divider-diamond">&#9830;</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- Menu Navigation -->
+      <div class="menu-nav">
+        <button class="menu-tab active" data-section="minestra">La Minestra y Crudos</button>
+        <button class="menu-tab" data-section="entradas">Ensaladas y Entradas</button>
+        <button class="menu-tab" data-section="pasta">Pasta della Casa</button>
+        <button class="menu-tab" data-section="pizza">Pizza</button>
+        <button class="menu-tab" data-section="risotto">Risotto</button>
+        <button class="menu-tab" data-section="mare">Mare e Terra</button>
+      </div>
+
+      <!-- La Minestra y Crudos -->
+      <div class="menu-section active" id="minestra">
+        <h3 class="menu-section-title">La Minestra y Crudos</h3>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Zuppa di Pomodori</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$195</span>
+            </div>
+            <p class="menu-item-detail">360 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Zuppa Minestrone</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$195</span>
+            </div>
+            <p class="menu-item-detail">354 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Carpaccio de Res</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$425</span>
+            </div>
+            <p class="menu-item-detail">120 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Salmón Burrata</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$415</span>
+            </div>
+            <p class="menu-item-detail">180 gramos</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ensaladas y Entradas -->
+      <div class="menu-section" id="entradas">
+        <h3 class="menu-section-title">Ensaladas y Entradas</h3>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Ensalada Caesar</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$339</span>
+            </div>
+            <p class="menu-item-detail">375 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Ensalada Burrata</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$395</span>
+            </div>
+            <p class="menu-item-detail">565 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Calamari Fritti</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$325</span>
+            </div>
+            <p class="menu-item-detail">248 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Pane di Casa</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$55</span>
+            </div>
+            <p class="menu-item-detail">250 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Pulpo al Pesto</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$455</span>
+            </div>
+            <p class="menu-item-detail">480 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Scampi al Burro</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$595</span>
+            </div>
+            <p class="menu-item-detail">368 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Real Truffle Fries</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$485</span>
+            </div>
+            <p class="menu-item-detail">300 gramos</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pasta della Casa -->
+      <div class="menu-section" id="pasta">
+        <h3 class="menu-section-title">Pasta della Casa</h3>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Pappardelle Short Rib</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$365</span>
+            </div>
+            <p class="menu-item-detail">500 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Agnolotti Ricotta</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$295</span>
+            </div>
+            <p class="menu-item-detail">250 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Rigatoni al Ragú</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$325</span>
+            </div>
+            <p class="menu-item-detail">150 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fagottini Stone Crab</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$395</span>
+            </div>
+            <p class="menu-item-detail">250 gramos</p>
+          </div>
+          <div class="menu-item highlight">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Spicy Vodka Cresta di Gallo</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$295</span>
+            </div>
+            <p class="menu-item-detail">130 gramos &middot; Favorito de la casa</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Ravioli Short Rib</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$315</span>
+            </div>
+            <p class="menu-item-detail">250 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Lasagna 24 Stati</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$295</span>
+            </div>
+            <p class="menu-item-detail">400 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Meat Lasagna</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$895</span>
+            </div>
+            <p class="menu-item-detail">650 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Spaghetti Meatballs</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$445</span>
+            </div>
+            <p class="menu-item-detail">256 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Scampi Linguine</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$495</span>
+            </div>
+            <p class="menu-item-detail">280 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Carbonara</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$295</span>
+            </div>
+            <p class="menu-item-detail">200 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Pesto Rigatoni</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$285</span>
+            </div>
+            <p class="menu-item-detail">130 gramos</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pizza -->
+      <div class="menu-section" id="pizza">
+        <h3 class="menu-section-title">Pizza</h3>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Margherita</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$285</span>
+            </div>
+            <p class="menu-item-detail">300 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Pepperoni</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$295</span>
+            </div>
+            <p class="menu-item-detail">330 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Bianca</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$295</span>
+            </div>
+            <p class="menu-item-detail">330 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Prosciutto</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$325</span>
+            </div>
+            <p class="menu-item-detail">330 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Salsiccia Italiana</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$295</span>
+            </div>
+            <p class="menu-item-detail">350 gramos</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risotto -->
+      <div class="menu-section" id="risotto">
+        <h3 class="menu-section-title">Risotto</h3>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Risotto Verde</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$295</span>
+            </div>
+            <p class="menu-item-detail">461 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Risotto ai Funghi</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$355</span>
+            </div>
+            <p class="menu-item-detail">484 gramos</p>
+          </div>
+          <div class="menu-item highlight">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Lobster Risotto</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$495</span>
+            </div>
+            <p class="menu-item-detail">450 gramos &middot; Especialidad de la casa</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mare e Terra -->
+      <div class="menu-section" id="mare">
+        <h3 class="menu-section-title">Mare e Terra</h3>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Bone in Milanese</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$845</span>
+            </div>
+            <p class="menu-item-detail">200 gramos</p>
+          </div>
+          <div class="menu-item highlight">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Ribeye al Barbaro</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$1,095</span>
+            </div>
+            <p class="menu-item-detail">400 gramos &middot; Corte insignia</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Mahi Mahi</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$495</span>
+            </div>
+            <p class="menu-item-detail">200 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Chicken Parm</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$435</span>
+            </div>
+            <p class="menu-item-detail">200 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Pulpo All'Arrabbiata</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$495</span>
+            </div>
+            <p class="menu-item-detail">250 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Short Rib Gnocchi</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$675</span>
+            </div>
+            <p class="menu-item-detail">300 gramos</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Filetto Bruciato</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">$695</span>
+            </div>
+            <p class="menu-item-detail">180 gramos</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="menu-footer-note">Precios en MXN. Propina no incluida. Menú sujeto a disponibilidad.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- AMBIENCE / EXPERIENCE                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="ambience">
+    <div class="container">
+      <p class="section-eyebrow">La Experiencia</p>
+      <h2 class="section-title">Un viaje al Nueva York<br>de los 70s &amp; 80s</h2>
+
+      <div class="ambience-grid">
+        <div class="ambience-card">
+          <div class="ambience-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="4" y="8" width="40" height="32" rx="2"/>
+              <line x1="4" y1="16" x2="44" y2="16"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="24" y1="8" x2="24" y2="16"/>
+              <line x1="36" y1="8" x2="36" y2="16"/>
+              <rect x="10" y="22" width="12" height="8" rx="1"/>
+              <rect x="26" y="22" width="12" height="8" rx="1"/>
+            </svg>
+          </div>
+          <h3>Techo Casetonado</h3>
+          <p>Retroiluminado en dorado, evocando los grandes salones de los hoteles de Manhattan</p>
+        </div>
+        <div class="ambience-card">
+          <div class="ambience-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="24,4 28,16 40,16 30,24 34,36 24,28 14,36 18,24 8,16 20,16"/>
+            </svg>
+          </div>
+          <h3>Mosaico Hexagonal</h3>
+          <p>Piso blanco y negro iconográfico de la identidad Italian-American de Nueva York</p>
+        </div>
+        <div class="ambience-card">
+          <div class="ambience-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M8 40 C8 20, 16 12, 24 12 C32 12, 40 20, 40 40"/>
+              <line x1="24" y1="12" x2="24" y2="4"/>
+              <circle cx="24" cy="4" r="2"/>
+              <line x1="8" y1="40" x2="40" y2="40"/>
+            </svg>
+          </div>
+          <h3>Iluminación Ámbar</h3>
+          <p>Nichos y arcos con luz cálida teatral, creando una atmósfera casi cinematográfica</p>
+        </div>
+        <div class="ambience-card">
+          <div class="ambience-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="8" y="16" width="32" height="24" rx="2"/>
+              <path d="M8 28 Q24 20 40 28"/>
+              <circle cx="24" cy="8" r="4"/>
+            </svg>
+          </div>
+          <h3>Booths Azul Marino</h3>
+          <p>Banquetas tapizadas en azul profundo, guiño al diner americano de lujo clásico</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HOURS & LOCATION                            -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="hours">
+    <div class="container">
+      <div class="hours-grid">
+        <div class="hours-info">
+          <p class="section-eyebrow">Visítanos</p>
+          <h2 class="section-title">Horarios &amp; Ubicación</h2>
+
+          <div class="hours-table">
+            <div class="hours-row">
+              <span class="hours-day">Lunes — Jueves</span>
+              <span class="hours-dots"></span>
+              <span class="hours-time">1:00 PM — 1:00 AM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Viernes — Sábado</span>
+              <span class="hours-dots"></span>
+              <span class="hours-time">1:00 PM — 2:00 AM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Domingo</span>
+              <span class="hours-dots"></span>
+              <span class="hours-time">1:00 PM — 10:00 PM</span>
+            </div>
+          </div>
+
+          <div class="location-info">
+            <div class="location-address">
+              <h4>Dirección</h4>
+              <p>Highpark<br>Av. Manuel Gómez Morín 922<br>San Pedro Garza García, NL 66259</p>
+            </div>
+            <div class="location-services">
+              <h4>Servicios</h4>
+              <ul>
+                <li>Bar completo &amp; coctelería</li>
+                <li>Terraza exterior</li>
+                <li>Valet parking</li>
+                <li>Acceso para sillas de ruedas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="hours-map">
+          <div class="map-placeholder">
+            <div class="map-pin">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+            <p class="map-label">Highpark &middot; Gómez Morín</p>
+            <a href="https://maps.app.goo.gl/ohM1rk5zFtY9Ru3d6?g_st=ac" target="_blank" rel="noopener" class="map-link">Abrir en Google Maps &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- RESERVATIONS                                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="reservations">
+    <div class="container">
+      <div class="reservations-inner">
+        <p class="section-eyebrow">Reservaciones</p>
+        <h2 class="section-title">Reserve su mesa</h2>
+        <p class="reservations-text">
+          Para una experiencia inolvidable, le recomendamos hacer su reservación con anticipación.
+        </p>
+        <div class="reservations-buttons">
+          <a href="https://www.opentable.com/r/barbaro-san-pedro-garza-garcia" target="_blank" rel="noopener" class="btn btn-primary">Reservar en OpenTable</a>
+          <a href="https://www.instagram.com/barbaromty/" target="_blank" rel="noopener" class="btn btn-secondary">Seguir en Instagram</a>
+        </div>
+        <div class="reservations-contact">
+          <p>También puede contactarnos directamente vía Instagram <a href="https://www.instagram.com/barbaromty/" target="_blank" rel="noopener">@barbaromty</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FOOTER                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">"BARBARO"</span>
+          <p class="footer-tagline">Cocina Ítalo-Americana</p>
+          <p class="footer-address">Highpark &middot; Gómez Morín 922<br>San Pedro Garza García, NL</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navegación</h4>
+          <a href="#about">Nosotros</a>
+          <a href="#menu">Menú</a>
+          <a href="#ambience">Espacio</a>
+          <a href="#hours">Horarios</a>
+          <a href="#reservations">Reservar</a>
+        </div>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <a href="https://www.instagram.com/barbaromty/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.opentable.com/r/barbaro-san-pedro-garza-garcia" target="_blank" rel="noopener">OpenTable</a>
+          <a href="https://www.ubereats.com/mx/store/barbaro/wAwXYGp9XQOng-DKrDeKzw" target="_blank" rel="noopener">Uber Eats</a>
+        </div>
+        <div class="footer-grupo">
+          <h4>Un concepto de</h4>
+          <a href="https://www.instagram.com/grupo_buenasvibras/" target="_blank" rel="noopener" class="grupo-link">Grupo Buenas Vibras</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 BARBARO. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
